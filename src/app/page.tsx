@@ -16,7 +16,7 @@ export default function Page() {
 						<Text color="bronze">
 							Have an account? <span className="font-bold">Sign in</span>
 						</Text>
-						<Button className="bg-[#A18072] hover:bg-[#AE8C7E] cursor-pointer">
+						<Button color="bronze">
 							<Link href="/singin">Go to Sign in page</Link>
 						</Button>
 					</div>
@@ -24,9 +24,9 @@ export default function Page() {
 				<Card variant="ghost">
 					<div className="w-full h-full flex flex-col justify-center items-center gap-3">
 						<Text color="bronze">
-							Have an account? <span className="font-bold">Sign in</span>
+							Have an account? <span className="font-bold">Sign up</span>
 						</Text>
-						<Button className="bg-[#A18072] hover:bg-[#AE8C7E] cursor-pointer">
+						<Button color="bronze">
 							<Link href="/signup">Go to Sign up page</Link>
 						</Button>
 					</div>
