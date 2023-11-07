@@ -1,8 +1,9 @@
-//TODO: save the password encrypted using bcrypt or similar
-//TODO: save the email in lowercase to avoid duplicates
-//TODO: validate with a regex that the email is valid (optional)
-//TODO: validate that the password is strong enough (optional)
-//TODO: integrate NextAuth.js to handle the authentication with google, github, etc. (optional)
+// TODO: save the password encrypted using bcrypt or similar
+// TODO: save the email in lowercase to avoid duplicates
+// TODO: validate with a regex that the email is valid (optional)
+// TODO: validate that the password is strong enough (optional)
+// TODO: integrate NextAuth.js to handle the authentication with google, github, etc. (optional)
+
 
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -15,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     //Validate that we receive the correct data to create a user
     if (!name || !email || !password) {
-        return NextResponse.json({ error: 'Bad Request' }, { status: 400 });
+        return NextResponse.json({ error: 'Faltan datos para crear el usuario' }, { status: 400 });
     }
 
     //Validate that the user doesn't exist already
@@ -46,3 +47,6 @@ export async function POST(req: NextRequest) {
     //Return the new user
     return NextResponse.json({ newUser }, { status: 201 })
 }
+
+
+
