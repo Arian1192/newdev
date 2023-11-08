@@ -6,38 +6,34 @@ import {
 	Text,
 	TextFieldInput,
 } from '@radix-ui/themes';
-import {
-	GitHubLogoIcon,
-	EyeClosedIcon,
-	EyeOpenIcon,
-} from '@radix-ui/react-icons';
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { PasswordTextField } from '../../../components/passwordTextField/PasswordTextField';
+import { signIn } from 'next-auth/react';
+import { GithubSignIn } from '../../../components/githubSignIn/GithubSignIn';
 export default function Page() {
 	return (
 		<div className="w-full h-screen border bg-[url('/background.jpg')] bg-cover  flex flex-col justify-center items-center">
+			{/* COLOCAR UN LAYOUT CON LA MARCA EN LA PARTE DE ARRIBA Y UN FOOTER DECENTE */}
 			<div className="relative">
-				<Card variant="surface" style={{ width: 300 }} className="p-5 z-40">
-					<Flex align={'center'} direction={'row'} gap={'4'}>
-						<Text color="bronze" size={'8'} align={'left'} mt={'4'}>
+				<Card variant="surface" style={{ width: 300 }} className="p-3 z-40">
+					<Flex align={'end'} direction={'row'} gap={'4'}>
+						<Text color="bronze" size={'8'} mt={'2'}>
 							Welcome!
 						</Text>
 					</Flex>
 					<Flex direction={'column'}>
-						<Text color="bronze" size={'4'} align={'left'} mt={'4'}>
+						{/* <Text color="bronze" size={'4'} align={'left'} mt={'4'}>
 							Sign up to get started
+						</Text> */}
+						<Text color="bronze" size={'2'} align={'left'} mt={'1'}>
+							Sign up and become a part of our NewDev community and find the job
+							you want!
 						</Text>
 					</Flex>
 					<Separator orientation="horizontal" size={'4'} mt={'4'} />
 					<Flex direction={'column'} gap={'4'}>
-						<Button
-							className="w-full bg-[#333333] text-white hover:bg-[#444444] hover:cursor-pointer"
-							size={'3'}
-							mt={'4'}
-						>
-							<GitHubLogoIcon width={'18'} />
-							<Text>Sign up with GitHub</Text>
-						</Button>
+						<GithubSignIn />
 						<Flex align={'center'} justify={'center'}>
 							<Text size={'4'} align={'center'} color="bronze">
 								or

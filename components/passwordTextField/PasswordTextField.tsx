@@ -9,7 +9,7 @@ export const PasswordTextField = () => {
 		console.log(showPassword);
 	}, [showPassword]);
 	return (
-		<TextFieldRoot color="bronze">
+		<TextFieldRoot color="bronze" mt={'2'}>
 			<TextFieldInput
 				placeholder="Password"
 				type={showPassword ? undefined : 'password'}
