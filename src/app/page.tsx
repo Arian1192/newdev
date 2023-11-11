@@ -27,7 +27,7 @@ export default function Page() {
 							Have an account? <span className="font-bold">Sign up</span>
 						</Text>
 						<Button color="bronze">
-							<Link href="/signup">Go to Sign up page</Link>
+							<Link href="/auth/signup">Go to Sign up page</Link>
 						</Button>
 					</div>
 				</Card>
