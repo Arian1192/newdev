@@ -9,7 +9,7 @@ export default function Page() {
 				<Card variant="surface" style={{ width: 300 }} className="p-3 z-40">
 					<Flex align={'end'} direction={'row'} gap={'4'}>
 						<Text color="bronze" size={'8'} mt={'2'}>
-							We miss you
+							Welcome!
 						</Text>
 					</Flex>
 					<Flex direction={'column'}>
@@ -17,7 +17,8 @@ export default function Page() {
 							Sign up to get started
 						</Text> */}
 						<Text color="bronze" size={'1'} align={'left'} mt={'1'}>
-							Sign in, a new opportunity awaits you
+							Sign up and become a part of our NewDev community and find the job
+							you want!
 						</Text>
 					</Flex>
 					<Separator orientation="horizontal" size={'4'} mt={'4'} />

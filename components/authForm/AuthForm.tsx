@@ -1,14 +1,15 @@
 'use client';
 import { Flex, Text, TextFieldInput, Button } from '@radix-ui/themes';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { usePathname } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { usePathname, useRouter } from 'next/navigation';
 import { GithubSignIn } from '../githubSignIn/GithubSignIn';
 import { PasswordTextField } from '../passwordTextField/PasswordTextField';
 import Link from 'next/link';
+import { setDataToLocalStorage } from '@/app/_utils/setDataToLocalStorage';
 
 export const AuthForm = () => {
 	const pathName = usePathname();
-
+	const router = useRouter();
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = async (data: any) => {
@@ -19,8 +20,9 @@ export const AuthForm = () => {
 			},
 			body: JSON.stringify({ data }),
 		});
-		const user = await response.json();
-		
+		const token = await response.json();
+		setDataToLocalStorage({ key: 'token', value: token });
+		router.push('/');
 	};
 
 	return (
@@ -51,12 +53,22 @@ export const AuthForm = () => {
 					<Button size={'3'} mt={'4'} color="bronze">
 						<Text>Sign {pathName === '/auth/signup' ? 'Up' : 'In'}</Text>
 					</Button>
-					<Text color="bronze" size={'2'} align={'left'}>
-						Already have an account?{' '}
-						<span className="font-bold">
-							<Link href="/signin">Sign in</Link>
-						</span>
-					</Text>
+					{pathName === '/auth/signup' && (
+						<Text color="bronze" size={'2'} align={'left'}>
+							Already have an account?{' '}
+							<span className="font-bold">
+								<Link href="/auth/signin">Sign in</Link>
+							</span>
+						</Text>
+					)}
+					{pathName !== '/auth/signup' && (
+						<Text color="bronze" size={'2'} align={'left'}>
+							Don`t have an account ?{' '}
+							<span className="font-bold">
+								<Link href="/auth/signup">Sign up</Link>
+							</span>
+						</Text>
+					)}
 				</Flex>
 			</form>
 		</Flex>
