@@ -10,7 +10,7 @@ export const GithubSignIn = () => {
 	const pathName = usePathname();
 	return (
 		<Button
-			onClick={() => signIn('github', { callbackUrl: '/' })}
+			onClick={() => signIn('github', { callbackUrl: '/main' })}
 			size={'3'}
 			mt={'4'}
 			style={{

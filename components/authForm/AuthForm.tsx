@@ -22,7 +22,7 @@ export const AuthForm = () => {
 		});
 		const token = await response.json();
 		setDataToLocalStorage({ key: 'token', value: token });
-		router.push('/');
+		router.push('/main');
 	};
 
 	return (
